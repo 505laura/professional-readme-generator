@@ -62,6 +62,11 @@ const questions = [titleQuestion, descriptionQuestion, installationQuestion, usa
 inquirer
     .prompt(questions)
     .then((answers) => {
-        const markdown = `# ${answers.title}`;
+        const markdown = `# ${answers.title}
+        
+## Description
+${answers.description}
+
+`;
         console.log(markdown)
     });
