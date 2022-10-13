@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const emailValidator = require('email-validator');
+
 const licenses = ['MIT', 'GPLv2', 'GPLv3', 'Apache', 'BSD', 'None'];
 
 const titleQuestion = {
@@ -41,6 +43,10 @@ const emailQuestion = {
     type: 'input',
     name: 'email',
     message: 'Please enter your email address.',
+    validate: function (email) {
+        if (emailValidator.validate(email)) { return true; }
+        return 'Please enter a valid email address.';
+    }
 };
 
 const licenseQuestion = {
