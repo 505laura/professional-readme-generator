@@ -63,7 +63,9 @@ inquirer
     .prompt(questions)
     .then((answers) => {
         const markdown = `# ${answers.title}
-        
+
+![](https://img.shields.io/badge/license-${answers.license}-green)
+
 ## Description
 ${answers.description}
 
@@ -72,6 +74,9 @@ ${answers.installation}
 
 ## Usage
 ${answers.usage}
+
+## License
+This project is licensed under the ${answers.license} license
 
 ## Contributing
 ${answers.contribution}
