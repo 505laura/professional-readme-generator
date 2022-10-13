@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const emailValidator = require('email-validator');
+const fs = require('fs');
 
 const licenses = ['MIT', 'GPLv2', 'GPLv3', 'Apache', 'BSD', 'None'];
 
@@ -97,5 +98,6 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 You can find more of my work at [${answers.username}](https://github.com/${answers.username}).
 `;
-        console.log(markdown)
-    });
+    fs.writeFileSync('README.md', markdown);
+    console.log('README.md created!');
+});
