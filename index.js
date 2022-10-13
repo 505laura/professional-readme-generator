@@ -73,6 +73,11 @@ ${answers.installation}
 ## Usage
 ${answers.usage}
 
+## Contributing
+${answers.contribution}
+
+## Tests
+${answers.test}
 
 `;
         console.log(markdown)
