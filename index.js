@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const licenses = ['MIT', 'GPLv2', 'GPLv3', 'Apache', 'BSD', 'None'];
 
 const titleQuestion = {
     type: 'input',
@@ -35,6 +36,20 @@ const usernameQuestion = {
     name: 'username',
     message: 'Please enter your GitHub username.'
 };
+
+const emailQuestion = {
+    type: 'input',
+    name: 'email',
+    message: 'Please enter your email address.',
+};
+
+const licenseQuestion = {
+    type: 'list',
+    name: 'license',
+    message: 'Please select a license.',
+    choices: licenses
+};
+
 
 const questions = [titleQuestion, descriptionQuestion, installationQuestion, usageQuestion, contributionQuestion, testQuestion, licenseQuestion, usernameQuestion, emailQuestion];
 
