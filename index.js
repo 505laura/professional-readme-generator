@@ -1,9 +1,18 @@
+/** Import the modules we need for the script */
+
+/** We use inquirer to ask the user questions and get back their answers */
 const inquirer = require('inquirer');
+
+/** email-validator is used to make sure the email provided is correct */
 const emailValidator = require('email-validator');
+
+/** fs is used to write the readme once complete */
 const fs = require('fs');
 
+/** An array of possible licenses the user can choose from */
 const licenses = ['MIT', 'GPLv2', 'GPLv3', 'Apache', 'BSD', 'None'];
 
+/** Configuration for each question we want to ask the user */
 const titleQuestion = {
     type: 'input',
     name: 'title',
@@ -50,6 +59,7 @@ const emailQuestion = {
     }
 };
 
+/** We use a list type to allow the user to only chose from options we define  */
 const licenseQuestion = {
     type: 'list',
     name: 'license',
@@ -57,12 +67,14 @@ const licenseQuestion = {
     choices: licenses
 };
 
-
+/** An array of the questions we want to ask */
 const questions = [titleQuestion, descriptionQuestion, installationQuestion, usageQuestion, contributionQuestion, testQuestion, licenseQuestion, usernameQuestion, emailQuestion];
 
+/** Ask the user questions and get the answers */
 inquirer
     .prompt(questions)
     .then((answers) => {
+        /* We use the answers to create a markdown file */
         const markdown = `# ${answers.title}
 
 ![](https://img.shields.io/badge/license-${answers.license}-green)
@@ -98,6 +110,7 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 You can find more of my work at [${answers.username}](https://github.com/${answers.username}).
 `;
+    /** Write the markdown to a file for the user */
     fs.writeFileSync('README.md', markdown);
     console.log('README.md created!');
 });
