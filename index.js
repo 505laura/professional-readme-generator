@@ -67,6 +67,9 @@ inquirer
 ## Description
 ${answers.description}
 
+## Installation
+${answers.installation}
+
 `;
         console.log(markdown)
     });
