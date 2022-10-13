@@ -70,6 +70,10 @@ ${answers.description}
 ## Installation
 ${answers.installation}
 
+## Usage
+${answers.usage}
+
+
 `;
         console.log(markdown)
     });
