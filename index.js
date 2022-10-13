@@ -85,6 +85,6 @@ If you have any questions about the repo, open an issue or contact me directly a
 You can find more of my work at [${answers.username}](https://github.com/${answers.username}).
 `;
     /** Write the markdown to a file for the user */
-    fs.writeFileSync('README.md', markdown);
+    fs.writeFileSync('user_README.md', markdown);
     console.log('README.md created!');
 });
